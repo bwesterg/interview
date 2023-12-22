@@ -4,66 +4,95 @@
 
 body {
     margin: 0;
+    padding:0;
 }
 
+.content-container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Center the page */
+    padding: 0 20px; /* Set side padding */
+    min-width: 100vw;
+  }
+  
+
 header {
-    background-color: aqua;
-    width: 100%;
+    background-color: rgb(56, 182, 255);
+    width: 100vw;
 }
 
 header .header-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
-i.fa-solid {
-    display:flex;
+.header-content h2.headline {
+    margin: 0 0 0 1em;
+}
+
+.cart svg {
+    width: 30px;
 }
 
 .cart {
-    margin: 2em 2em;
+    margin: 0.5em;
 }
 
 form.search-products {
     margin-top: 1.5em;
 }
 
-#productContainer {
-    display: grid;
-    grid-gap: 20px;
-    margin-top: 20px;
+form input {
+    width: 100%;
 }
 
-#productContainer .product-card {
-    width: 150px;
+.page-title {
+    padding-left: 1em;
 }
+
+#productContainer {
+    max-width: 100vw; /* Set maximum width based on viewport */
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 8px;
+    margin-top: 8px;
+  }
 
 #productContainer .product-card img {
-    height: 100px;
+    height: 150px;
     width: auto;
+    max-width: 100px;
 }
 
-.product-card{
+.product-card {
+
     padding: 10px;
-    height: auto;
-}
+    text-align: center;
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
 
+/* Media query for 2 columns on mobile */
 @media (max-width: 430px) {
     #productContainer {
-        grid-template-columns: repeat(2, 1fr);
-        }
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
+  
 
-    @media (min-width: 431px) {
-        #productContainer {
-        grid-template-columns: repeat(3, 1fr);
-        }
+  
+  /* Media query for 3 columns on larger screens */
+  @media (min-width: 431px) {
+    #productContainer {
+      grid-template-columns: repeat(auto-fill, minmax(calc((100% - 40px) / 3), 1fr));
+      max-width: 100%; /* Adjust based on design */
     }
+  }
 
 .product-card h3{
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 1.17em;
 }
 
 .product-card p {
